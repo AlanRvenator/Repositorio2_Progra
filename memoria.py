@@ -45,6 +45,7 @@ def tap(x, y):
 
 
 def draw():
+    global taps2 
     "Draw image and tiles."
     clear()
     goto(0, 0)
@@ -64,12 +65,18 @@ def draw():
         goto(x + 25, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'), align='center')
+        
+        
+    up()
+    goto(-230, 180)
+    color('black')
+    write(taps2, font=('Arial', 15, 'normal'), align='left')
 
     update()
     ontimer(draw, 100)
 
 shuffle(tiles)
-setup(420, 420, 370, 0)
+setup(480, 420, 370, 0)
 addshape(car)
 hideturtle()
 tracer(False)

@@ -7,13 +7,17 @@ tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
 taps2 = 0
+impar = 0
 
-def square(x, y):
+def square(x, y, c):
     "Draw white square with black outline at (x, y)."
     up()
     goto(x, y)
     down()
-    color('black', 'white')
+    if (c == 1):
+        color('black', 'cyan')
+    else:
+        color('black', 'red')
     begin_fill()
     for count in range(4):
         forward(50)
@@ -46,6 +50,7 @@ def tap(x, y):
 
 def draw():
     global taps2 
+    global impar
     "Draw image and tiles."
     clear()
     goto(0, 0)
@@ -55,7 +60,8 @@ def draw():
     for count in range(64):
         if hide[count]:
             x, y = xy(count)
-            square(x, y)
+            impar = (count%2)
+            square(x, y,impar)
 
     mark = state['mark']
 

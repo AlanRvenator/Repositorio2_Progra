@@ -6,6 +6,7 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+"Variables que utilizamos"
 taps2 = 0
 impar = 0
 
@@ -14,6 +15,7 @@ def square(x, y, c):
     up()
     goto(x, y)
     down()
+    "Cambiar el color del tablero para que fuera inovador"
     if (c == 1):
         color('black', 'cyan')
     else:
@@ -44,6 +46,7 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+    "Imprimir los taps"
     taps2 = taps2 + 1
     print(taps2)
 
@@ -68,11 +71,12 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
+        "Centrar el tecto a los cuadros"
         goto(x + 25, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'), align='center')
         
-        
+    "Dibujar los taps"
     up()
     goto(-230, 180)
     color('black')

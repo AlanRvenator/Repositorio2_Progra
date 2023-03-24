@@ -11,6 +11,7 @@ def tap(x, y):
     if not inside(ball):
         ball.x = -199
         ball.y = -199
+        "Aumento de velocidad del proyectil"
         speed.x = (x + 300) / 25
         speed.y = (y + 200) / 25
 
@@ -40,6 +41,7 @@ def move():
         targets.append(target)
 
     for target in targets:
+        "Aumento de velocidad de los targets"
         target.x -= 2
 
     if inside(ball):
@@ -55,6 +57,7 @@ def move():
 
     draw()
 
+    "Hacer que el juego sea infinito   "
     for target in targets:
         if not inside(target):
             target.x = 200
